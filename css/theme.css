@@ -1,0 +1,146 @@
+/* ── Tokens ──────────────────────────────────────────────── */
+:root {
+  --dv-primary:    #f7a833;   /* warm amber */
+  --dv-secondary:  #5b8cff;   /* sky blue */
+  --dv-accent:     #ff6b6b;   /* coral */
+  --dv-bg:         #fff9f0;   /* warm off-white */
+  --dv-surface:    #ffffff;
+  --dv-text:       #2c2c2c;
+  --dv-muted:      #777;
+  --dv-radius:     1rem;
+  --dv-radius-sm:  0.5rem;
+  --dv-shadow:     0 4px 18px rgba(0, 0, 0, 0.10);
+  --dv-shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+body {
+  background-color: var(--dv-bg);
+  color: var(--dv-text);
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .dv-brand {
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 0.01em;
+}
+
+/* ── Navbar ──────────────────────────────────────────────── */
+.dv-navbar {
+  background-color: var(--dv-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.dv-brand {
+  font-size: 1.6rem;
+  color: #fff !important;
+}
+
+.dv-navbar .nav-link {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 700;
+  border-radius: var(--dv-radius-sm);
+  padding: 0.35rem 0.75rem;
+  transition: background 0.15s;
+}
+
+.dv-navbar .nav-link:hover,
+.dv-navbar .nav-link.active {
+  background: rgba(255,255,255,0.22);
+  color: #fff !important;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.dv-hero {
+  background: linear-gradient(135deg, #ffe0a0 0%, #ffc1c1 50%, #c1d9ff 100%);
+  border-bottom: 3px solid var(--dv-primary);
+}
+
+.dv-hero-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--dv-text);
+}
+
+.dv-hero-sub {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 540px;
+  margin-inline: auto;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.dv-btn-primary {
+  background-color: var(--dv-primary);
+  border-color: var(--dv-primary);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  border-radius: var(--dv-radius);
+  padding: 0.55rem 1.6rem;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.dv-btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.dv-btn-outline {
+  border: 2px solid var(--dv-primary);
+  color: var(--dv-primary);
+  font-weight: 700;
+  border-radius: var(--dv-radius);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dv-btn-outline:hover {
+  background: var(--dv-primary);
+  color: #fff;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.dv-card {
+  background: var(--dv-surface);
+  border: none;
+  border-radius: var(--dv-radius);
+  box-shadow: var(--dv-shadow);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+.dv-card:hover {
+  box-shadow: var(--dv-shadow-hover);
+  transform: translateY(-3px);
+}
+
+.dv-card-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.dv-card-title {
+  font-family: 'Fredoka One', cursive;
+  color: var(--dv-text);
+}
+
+.dv-card-body {
+  color: var(--dv-muted);
+  font-size: 0.95rem;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.dv-footer {
+  background-color: var(--dv-primary);
+  color: #fff;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.dv-footer a {
+  color: #fff;
+  text-decoration: underline;
+}

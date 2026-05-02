@@ -1,0 +1,107 @@
+/* ── Filter bar ──────────────────────────────────────────── */
+.dv-filter-label {
+  font-weight: 700;
+  color: var(--dv-muted);
+  align-self: center;
+}
+
+.dv-filter-btn {
+  border: 2px solid var(--dv-primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dv-primary);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dv-filter-btn:hover,
+.dv-filter-btn.active {
+  background: var(--dv-primary);
+  color: #fff;
+}
+
+/* ── Photo grid ──────────────────────────────────────────── */
+.dv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.dv-thumb {
+  border-radius: var(--dv-radius);
+  overflow: hidden;
+  box-shadow: var(--dv-shadow);
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.dv-thumb:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--dv-shadow-hover);
+}
+
+.dv-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dv-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.75rem;
+}
+
+.dv-thumb:hover .dv-thumb-overlay {
+  opacity: 1;
+}
+
+.dv-thumb-caption {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ── Lightbox ────────────────────────────────────────────── */
+.dv-lightbox-content {
+  background: #111;
+  border: none;
+  border-radius: var(--dv-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.dv-lightbox-img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.dv-lightbox-caption {
+  color: #ddd;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.dv-lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  filter: invert(1);
+}
