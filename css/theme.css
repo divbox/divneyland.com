@@ -55,20 +55,37 @@ h1, h2, h3, .dv-brand {
 
 /* ── Hero ────────────────────────────────────────────────── */
 .dv-hero {
-  background: linear-gradient(135deg, #ffe0a0 0%, #ffc1c1 50%, #c1d9ff 100%);
+  background-color: #1a1a1a; /* fallback while image loads */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 3px solid var(--dv-primary);
+  position: relative;
+}
+
+.dv-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.dv-hero > * {
+  position: relative;
 }
 
 .dv-hero-title {
   font-size: clamp(2.2rem, 6vw, 4rem);
-  color: var(--dv-text);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .dv-hero-sub {
   font-size: 1.2rem;
-  color: #555;
+  color: rgba(255,255,255,0.88);
   max-width: 540px;
   margin-inline: auto;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */
