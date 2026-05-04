@@ -26,7 +26,7 @@
   const html = `
 <nav class="navbar navbar-expand-md navbar-dark dv-navbar">
   <div class="container">
-    <a class="navbar-brand dv-brand" href="index.html">✨ Divneyland</a>
+    <a class="navbar-brand dv-brand" href="index.html">🎡 Divneyland</a>
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#mainNav"
             aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
