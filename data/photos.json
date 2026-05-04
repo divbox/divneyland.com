@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "file": "ibiza_club_2005",
+    "cloudinary_id": "ibiza_club_2005",
+    "year": 2005,
+    "location": "Ibiza",
+    "tags": ["travel", "nightlife"],
+    "caption": "",
+    "people": ["Larry", "Tony", "Christian", "Div", "Ryan", "Sterny", "LL", "Cass", "Tam", "Christina"],
+    "scanned": false
+  }
+]
+

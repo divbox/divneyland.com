@@ -32,7 +32,4 @@ All changes go through a PR; no direct commits to `main`.
 
 ## Cloudinary
 
-Set your cloud name in `js/gallery.js`:
-```js
-const CLOUDINARY_BASE = 'https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload';
-```
+Cloudinary cloud name: `dckuzho0v` (set in `js/gallery.js`).

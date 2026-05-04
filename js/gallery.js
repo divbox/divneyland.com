@@ -1,4 +1,4 @@
-const CLOUDINARY_BASE = 'https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload';
+const CLOUDINARY_BASE = 'https://res.cloudinary.com/dckuzho0v/image/upload';
 
 const grid = document.getElementById('photoGrid');
 const filterBar = document.getElementById('filterBar');
