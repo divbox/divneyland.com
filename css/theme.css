@@ -1,16 +1,42 @@
-/* ── Tokens ──────────────────────────────────────────────── */
+/* ── Theme tokens ────────────────────────────────────────────
+   All color decisions live here as CSS variables.
+   Swap a theme by setting data-theme on <html>.
+   ─────────────────────────────────────────────────────────── */
+
+/* Campfire (default) */
 :root {
-  --dv-primary:    #f7a833;   /* warm amber */
-  --dv-secondary:  #5b8cff;   /* sky blue */
-  --dv-accent:     #ff6b6b;   /* coral */
-  --dv-bg:         #fff9f0;   /* warm off-white */
-  --dv-surface:    #ffffff;
-  --dv-text:       #2c2c2c;
-  --dv-muted:      #777;
-  --dv-radius:     1rem;
-  --dv-radius-sm:  0.5rem;
-  --dv-shadow:     0 4px 18px rgba(0, 0, 0, 0.10);
-  --dv-shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.16);
+  --dv-primary:      #E8621A;
+  --dv-accent:       #C0392B;
+  --dv-bg:           #FFF8F0;
+  --dv-surface:      #FFFFFF;
+  --dv-text:         #2C2C2C;
+  --dv-muted:        #777;
+
+  /* non-color tokens — shared across all themes */
+  --dv-radius:       1rem;
+  --dv-radius-sm:    0.5rem;
+  --dv-shadow:       0 4px 18px rgba(0,0,0,0.10);
+  --dv-shadow-hover: 0 8px 28px rgba(0,0,0,0.16);
+}
+
+/* Forest Trail */
+[data-theme="forest"] {
+  --dv-primary:  #2D6A4F;
+  --dv-accent:   #F4A261;
+  --dv-bg:       #F0F7F4;
+  --dv-surface:  #FFFFFF;
+  --dv-text:     #1A3A2A;
+  --dv-muted:    #5A7A6A;
+}
+
+/* Night Camp */
+[data-theme="night"] {
+  --dv-primary:  #1B2A4A;
+  --dv-accent:   #F5A623;
+  --dv-bg:       #F7F3EC;
+  --dv-surface:  #FFFFFF;
+  --dv-text:     #1B2A4A;
+  --dv-muted:    #666;
 }
 
 /* ── Base ────────────────────────────────────────────────── */
@@ -21,6 +47,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 h1, h2, h3, .dv-brand {
@@ -32,6 +59,7 @@ h1, h2, h3, .dv-brand {
 .dv-navbar {
   background-color: var(--dv-primary);
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background-color 0.35s ease;
 }
 
 .dv-brand {
@@ -53,14 +81,70 @@ h1, h2, h3, .dv-brand {
   color: #fff !important;
 }
 
+/* ── Forecast picker ─────────────────────────────────────── */
+.dv-forecast {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+
+.dv-forecast-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+}
+
+.dv-forecast-btn {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dv-forecast-btn:hover {
+  transform: scale(1.15);
+}
+
+.dv-forecast-btn.active {
+  border-color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.15);
+}
+
+/* On mobile, stack nicely inside the collapsed nav */
+@media (max-width: 767px) {
+  .dv-forecast {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 0.5rem;
+  }
+}
+
 /* ── Hero ────────────────────────────────────────────────── */
 .dv-hero {
-  background-color: #1a1a1a; /* fallback while image loads */
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-bottom: 3px solid var(--dv-primary);
   position: relative;
+  transition: border-color 0.35s ease;
 }
 
 .dv-hero > * {
@@ -73,18 +157,9 @@ h1, h2, h3, .dv-brand {
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
-.dv-hero-sub {
-  font-size: 1.2rem;
-  color: rgba(255,255,255,0.88);
-  max-width: 540px;
-  margin-inline: auto;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-}
-
-/* ── Hero pill options ───────────────────────────────────── */
 .dv-hero-title--pill {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   border-radius: 0.75rem;
   padding: 0.35em 0.75em;
 }
@@ -98,7 +173,7 @@ h1, h2, h3, .dv-brand {
   font-size: 1.1rem;
   border-radius: var(--dv-radius);
   padding: 0.55rem 1.6rem;
-  transition: filter 0.15s, transform 0.1s;
+  transition: filter 0.15s, transform 0.1s, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .dv-btn-primary:hover {
@@ -113,7 +188,7 @@ h1, h2, h3, .dv-brand {
   font-weight: 700;
   border-radius: var(--dv-radius);
   background: transparent;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.35s ease;
 }
 
 .dv-btn-outline:hover {
@@ -127,7 +202,7 @@ h1, h2, h3, .dv-brand {
   border: none;
   border-radius: var(--dv-radius);
   box-shadow: var(--dv-shadow);
-  transition: box-shadow 0.2s, transform 0.15s;
+  transition: box-shadow 0.2s, transform 0.15s, background-color 0.35s ease;
 }
 
 .dv-card:hover {
@@ -156,6 +231,7 @@ h1, h2, h3, .dv-brand {
   color: #fff;
   font-weight: 600;
   margin-top: auto;
+  transition: background-color 0.35s ease;
 }
 
 .dv-footer a {
