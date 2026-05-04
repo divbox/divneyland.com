@@ -140,15 +140,24 @@ h1, h2, h3, .dv-brand {
 .dv-hero {
   background-color: #1a1a1a;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   border-bottom: 3px solid var(--dv-primary);
   position: relative;
   transition: border-color 0.35s ease;
+  height: 420px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 1.5rem;
 }
 
 .dv-hero > * {
   position: relative;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .dv-hero { display: none; }
 }
 
 .dv-hero-title {
