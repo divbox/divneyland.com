@@ -63,13 +63,6 @@ h1, h2, h3, .dv-brand {
   position: relative;
 }
 
-.dv-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
-}
-
 .dv-hero > * {
   position: relative;
 }
@@ -89,28 +82,11 @@ h1, h2, h3, .dv-brand {
 }
 
 /* ── Hero pill options ───────────────────────────────────── */
-.dv-pill {
-  border-radius: 1.5rem;
-  padding: 2rem 2.5rem;
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-.dv-pill-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  margin-bottom: 0.5rem;
-  color: #fff;
-}
-
-.dv-pill--glass {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+.dv-hero-title--pill {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0.75rem;
+  padding: 0.35em 0.75em;
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */
