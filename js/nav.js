@@ -11,7 +11,6 @@
     { theme: 'night',    emoji: '🌙', label: 'Night Camp' },
   ];
 
-  /* Detect active page by matching the filename */
   const page = window.location.pathname.split('/').pop() || 'index.html';
 
   const navLinks = links.map(({ href, label }) => {
@@ -23,10 +22,11 @@
     `<button class="dv-forecast-btn" data-theme="${theme}" title="${label}" aria-label="${label}">${emoji}</button>`
   ).join('\n        ');
 
-  const html = `
+  /* ── Nav ─────────────────────────────────────────────────── */
+  const navHtml = `
 <nav class="navbar navbar-expand-md navbar-dark dv-navbar">
   <div class="container">
-    <a class="navbar-brand dv-brand" href="index.html">🎡 Divneyland</a>
+    <a class="navbar-brand dv-brand" href="index.html"><span class="dv-brand-icon">🎡</span> Divneyland</a>
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#mainNav"
             aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,19 +44,26 @@
   </div>
 </nav>`.trim();
 
-  const root = document.getElementById('site-nav');
-  if (root) {
-    root.outerHTML = html;
-  }
+  const navRoot = document.getElementById('site-nav');
+  if (navRoot) navRoot.outerHTML = navHtml;
 
-  /* Wire up buttons — runs after nav is in the DOM */
   document.querySelectorAll('.dv-forecast-btn').forEach(btn => {
     btn.addEventListener('click', () => window.dvSetTheme(btn.dataset.theme));
   });
 
-  /* Sync active button with current theme */
   const current = document.documentElement.getAttribute('data-theme') || 'campfire';
   document.querySelectorAll('.dv-forecast-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.theme === current);
   });
+
+  /* ── Footer ──────────────────────────────────────────────── */
+  const year = new Date().getFullYear();
+  const footerHtml = `
+<footer class="dv-footer text-center py-4">
+  <p class="mb-0">Made with ❤️ by Claude</p>
+  <p class="mb-0 dv-footer-copy">© ${year} Divneyland</p>
+</footer>`.trim();
+
+  const footerRoot = document.getElementById('site-footer');
+  if (footerRoot) footerRoot.outerHTML = footerHtml;
 })();
