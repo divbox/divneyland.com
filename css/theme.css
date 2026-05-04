@@ -67,6 +67,19 @@ h1, h2, h3, .dv-brand {
   color: #fff !important;
 }
 
+.dv-brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.18);
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}
+
 .dv-navbar .nav-link {
   color: rgba(255,255,255,0.85) !important;
   font-weight: 700;
@@ -246,4 +259,10 @@ h1, h2, h3, .dv-brand {
 .dv-footer a {
   color: #fff;
   text-decoration: underline;
+}
+
+.dv-footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  font-weight: 400;
 }
